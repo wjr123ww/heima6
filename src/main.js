@@ -6,11 +6,14 @@ import './styles/common.less'
 import './styles/iconfont.less'
 import HmHeader from './components/HmHeader.vue'
 import Hmlogo from './components/HmLogo.vue'
-import { Button, Field, Form } from 'vant'
-
+import { Button, Field, Form, Toast } from 'vant'
+import axios from 'axios'
+Vue.prototype.$axios = axios
+axios.defaults.baseURL = 'http://localhost:3000'
 Vue.use(Button)
 Vue.use(Field)
 Vue.use(Form)
+Vue.use(Toast)
 Vue.component('hm-header', HmHeader)
 Vue.component('hm-logo', Hmlogo)
 Vue.config.productionTip = false
