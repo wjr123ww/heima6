@@ -18,7 +18,7 @@
       />
       <div style="margin: 16px;">
         <van-button round block type="info" native-type="submit">
-          提交
+          登录
         </van-button>
       </div>
     </van-form>
@@ -66,10 +66,13 @@ export default {
         password: this.password
       })
       const { statusCode, message, data } = res.data
+      console.log(res.data)
       if (statusCode === 200) {
         this.$toast.success(message)
         localStorage.setItem('token', data.token)
-        this.$router.push('/')
+        localStorage.setItem('userId', data.user.id)
+
+        this.$router.push('/user')
       } else {
         this.$toast.fail(message)
       }
