@@ -1,5 +1,5 @@
 <template>
-  <div class="hm-navbar">
+  <div class="hm-navbar" @click="clickFn">
     <div class="title"><slot></slot></div>
     <div class="content"><slot name="content"></slot></div>
     <div class="arrow"><span class="iconfont iconjiantou1"></span></div>
@@ -7,7 +7,13 @@
 </template>
 
 <script>
-export default {}
+export default {
+  methods: {
+    clickFn() {
+      this.$emit('click')
+    }
+  }
+}
 </script>
 
 <style lang="less" scoped>
